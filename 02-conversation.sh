@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#here we use Rachi and Pavi words multiple times
 echo "Rachi::Hey Pavi,How are you?"
 echo "Pavi::Hello Rachi, I am fine.How are you doing?"
 echo "Rachi::I am fine too. When i get a job,I want to meet you."
