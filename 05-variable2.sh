@@ -20,5 +20,5 @@ echo "$PERSON2::Yes,i am waiting for that day.."
 # Variable is a container to hold the value, you can use it wherever you require.
 # we will give values outside the code.
 # i will send it from outside called args/arguments.
-# you can give values using Arguments with space difference like value1 value2 etc.. you can give value whatever value you want.
+# you can run values using Arguments with space difference like value1 value2 etc.. you can give value whatever value you want.
 # Shell stores value1 into $1 and value2 into $2.
