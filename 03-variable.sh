@@ -5,6 +5,7 @@ PERSON2=Pavi
 # "$"(dollar) represent it's a Variable..
 # $PERSON1 and $PERSON2 are the Variables. $PERSON1 value is Rachi, $PERSON2 value is Pavi.
 # while executing the code PERSON1 value substitute in $PERSON1, same as PERSON2.
+# we give values within the code.
 echo "$PERSON1::Hey $PERSON2,How are you?"
 echo "$PERSON2::Hello $PERSON1, I am fine.How are you doing?"
 echo "$PERSON1::I am fine too. When i get a job,I want to meet you."
