@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PERSON1=Rachi #there should be no space before and after =(equal to)
-PERSON2=Pavi
+PERSON2=Deepu
 # "$"(dollar) represent it's a Variable..
 # $PERSON1 and $PERSON2 are the Variables. $PERSON1 value is Rachi, $PERSON2 value is Pavi.
 # while executing the code PERSON1 value substitute in $PERSON1, same as PERSON2.
