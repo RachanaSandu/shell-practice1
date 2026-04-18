@@ -21,4 +21,5 @@ echo "$PERSON2::Yes,i am waiting for that day.."
 # we will give values outside the code.
 # i will send it from outside called args/arguments.
 # you can run values using Arguments with space difference like value1 value2 etc.. you can give value whatever value you want.
+# if the value has more than one word,you should keep the value within the double quotes,it will treats as it's a one value.
 # Shell stores value1 into $1 and value2 into $2.
