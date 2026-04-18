@@ -2,7 +2,7 @@
 
 DEVOPS=("Linux" "Shell scripting" "Ansible" "Terraform" "Docker" "Kubernetes" "Git" "Jenkins" "Python")
 
-echo "First Devops topic is: $MOVIES[0]"
+echo "First Devops topic is: $DEVOPS[0]"
 
 #Array means it will stores multiple values
 # in DEVOPS we will store devops topic names within double quotes and with space difference.
