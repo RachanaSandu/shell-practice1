@@ -8,3 +8,5 @@ echo"home directory of the user who is running the script : $HOME"
 echo"which user is running the script : $USER"
 echo"PID(process instance ID) of the last command running  in background : $!"
 echo"PID of the current script : $$"
+
+
