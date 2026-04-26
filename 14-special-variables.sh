@@ -10,5 +10,5 @@
 # PID of the current script : $$ 
 
 
-echo"All variables passed to the script:$@"
-echo"Number of variables:$#"
+echo "All variables passed to the script:$@"
+echo "Number of variables:$#"
