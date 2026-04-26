@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if (raining){
+if (raining) {
     take umbrella
 }
 else{
