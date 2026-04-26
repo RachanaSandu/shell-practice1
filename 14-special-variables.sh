@@ -11,9 +11,11 @@
 
 
 echo "All variables passed to the script:$@" #give values while run the script like devops azure
-echo "Number of variables:$#"
-echo "Script name:$0"
+echo "Number of variables:$#" #what we gave values those values count will see here
+echo "Script name:$0" #file name
 echo "Current directory:$PWD"
 echo "User running this script:$USER"
 echo "Home directory of user:$HOME"
-echo "PID of the script:$$"
+echo "PID of the script:$$" #even single command also has a PID(process instance ID)
+sleep 10 &  #ps-ef|grep sleep  use this command while executing the script, in background it will have create PID.
+echo "PID of last command in background:$!"  
