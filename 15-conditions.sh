@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #define a variable 'raining'
-raining=true
+raining=$1
 
 #check condition
 if [ "$raining" = true ]; then
