@@ -10,5 +10,10 @@
 # PID of the current script : $$ 
 
 
-echo "All variables passed to the script:$@"
+echo "All variables passed to the script:$@" #give values while run the script like devops azure
 echo "Number of variables:$#"
+echo "Script name:$0"
+echo "Current directory:$PWD"
+echo "User running this script:$USER"
+echo "Home directory of user:$HOME"
+echo "PID of the script:$$"
