@@ -1,10 +1,8 @@
 #!/bin/bash
 
-if (raining)
-{
+if (raining){
     take umbrella
 }
-else
-{
+else{
     no need to take umbrella
-}
+    }
