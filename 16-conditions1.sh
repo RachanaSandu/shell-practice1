@@ -6,6 +6,7 @@
 # -eq means Equal 
 # -ne means Not equal
 
+
 NUMBER=$1
 if [ $NUMBER -lt 10 ]
 then
