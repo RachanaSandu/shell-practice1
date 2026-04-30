@@ -20,16 +20,20 @@ Y="\e[33m"
 N="\e[0m"
 LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1) # $0 represent script name
+
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOGS_FOLDER
-echo "script startrd executing at : $(date)" &>>$LOG_FILE
+echo "script startrd executing at : $(date)" | tee -a $LOG_FILE
 
+# | tee -a $LOG_FILE this command using for output will store in log file and also show output in screen while run the script like (sudo sh-22.logs.sh)
+# &>>$LOG_FILE this command using for if the output fail or success it will store in log file
+# 1 means success, 2 means failure &(append) means both fail and success 
 if [ $USERID -ne 0 ]
 then 
-  echo -e "$R ERROR:: please run this script with root access $N" &>>$LOG_FILE
+  echo -e "$R ERROR:: please run this script with root access $N" | tee -a $LOG_FILE
   exit 1 # give otherthan 0 upto 127
 else  
-  echo "you are running this script with root access" &>>$LOG_FILE
+  echo "you are running this script with root access" | tee -a $LOG_FILE
 fi
 
 
@@ -38,9 +42,9 @@ fi
 VALIDATE(){ 
   if [ $1 -eq 0 ]  
   then 
-    echo -e "Installing $2 is ... $G SUCCESS $N" &>>$LOG_FILE
+    echo -e "Installing $2 is ... $G SUCCESS $N" | tee -a $LOG_FILE
 else
-   echo -e "Installing $2 is ... $R FAILURE $N" &>>$LOG_FILE
+   echo -e "Installing $2 is ... $R FAILURE $N" | tee -a $LOG_FILE
    exit 1
 fi
 }
@@ -49,11 +53,11 @@ dnf list installed mysql  &>>$LOG_FILE
 
 if [ $? -ne 0 ] 
 then
-  echo "mysql is not installed...going to install it"  &>>$LOG_FILE # then do install 
+  echo "mysql is not installed...going to install it"  | tee -a $LOG_FILE # then do install 
   dnf install mysql -y &>>$LOG_FILE  # run this script with root access using sudo command like sudo su 19-functions.sh
 VALIDATE $? "mysql"   # VALIDATE is a function, function name should give with capital letters.
 else
-  echo -e "Nothing to do mysql ... $Y already installed $N" &>>$LOG_FILE # else nothing to install
+  echo -e "Nothing to do mysql ... $Y already installed $N" | tee -a $LOG_FILE # else nothing to install
 fi
 
 
@@ -61,11 +65,11 @@ dnf list installed python3  &>>$LOG_FILE
 
 if [ $? -ne 0 ]  
 then
-  echo "python3 is not installed...going to install it" &>>$LOG_FILE # then do install 
+  echo "python3 is not installed...going to install it" | tee -a $LOG_FILE # then do install 
   dnf install python3 -y &>>$LOG_FILE # run this script with root access using sudo command like sudo su 19-functions.sh
 VALIDATE $? "python3"
 else
-  echo -e "Nothing to do python3 ... $Y already installed $N"  &>>$LOG_FILE
+  echo -e "Nothing to do python3 ... $Y already installed $N"  | tee -a $LOG_FILE
 fi
 
 
@@ -73,10 +77,10 @@ dnf list installed nginx  &>>$LOG_FILE
 
 if [ $? -ne 0 ] 
 then
-  echo "nginx is not installed...going to install it" &>>$LOG_FILE  # then do install 
+  echo "nginx is not installed...going to install it" | tee -a $LOG_FILE  # then do install 
   dnf install nginx -y &>>$LOG_FILE # run this script with root access using sudo command like sudo su 19-functions.sh
 VALIDATE $? "nginx"
 else
-  echo -e "Nothing to do nginx ... $Y already installed $N" &>>$LOG_FILE  
+  echo -e "Nothing to do nginx ... $Y already installed $N" | tee -a $LOG_FILE
 fi
 
