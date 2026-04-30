@@ -1,4 +1,4 @@
 #!\bin\bash
 
-echo -e "\e[34m DEVOPS"
-echo "hello no color"
+echo -e "\e[34m DEVOPS \e[0m"
+echo "aws"
