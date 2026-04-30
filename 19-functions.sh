@@ -31,16 +31,11 @@ fi
 
 dnf list installed MYSQL  
 
-if [ $? -ne 0 ] # if it didn't installed 
+if [ $? -ne 0 ] 
 then
   echo "Mysql is not installed...going to install it"  # then do install 
   dnf install mysql -y  # run this script with root access using sudo command like sudo su 19-functions.sh
 VALIDATE $? "MYSQL"   # VALIDATE is a function, function name should give with capital letters.
-  if [ $? -eq 0 ]  
-  then 
-    echo "Installing MYSQL is ...SUCCESS"
-else
-   echo "Installing MYSQL is ...FAILURE"
 else
   echo "Mysql is already installed...Nothing to do"  # else nothing to install
 fi
@@ -53,11 +48,6 @@ then
   echo "PYTHON3 is not installed...going to install it"  # then do install 
   dnf install PYTHON3 -y  # run this script with root access using sudo command like sudo su 19-functions.sh
 VALIDATE $? "PYTHON3"
-  if [ $? -eq 0 ]  
-  then 
-    echo "Installing PYTHON3 is ...SUCCESS"
-else
-   echo "Installing PYTHON3 is ...FAILURE"
 else
   echo "PYTHON3 is already installed...Nothing to do"  
 fi
@@ -70,11 +60,6 @@ then
   echo "NGINX is not installed...going to install it"  # then do install 
   dnf install NGINX -y  # run this script with root access using sudo command like sudo su 19-functions.sh
 VALIDATE $? "NGINX"
-  if [ $? -eq 0 ]
-  then 
-    echo "Installing NGINX is ...SUCCESS"
-else
-   echo "Installing NGINX is ...FAILURE"
 else
   echo "NGINX is already installed...Nothing to do"  
 fi
