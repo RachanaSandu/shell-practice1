@@ -19,6 +19,7 @@ fi
 
 # validate functions takes input as exit status, what command they tried to install
 # $1 is equal to 0 then install $2..
+VALIDATE(){ 
   if [ $1 -eq 0 ]  
   then 
     echo "Installing $2 is ...SUCCESS"
@@ -26,6 +27,7 @@ else
    echo "Installing $2 is ...FAILURE"
    exit 1
 fi
+}
 
 dnf list installed MYSQL  
 
