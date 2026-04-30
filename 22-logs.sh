@@ -25,8 +25,8 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOGS_FOLDER
 echo "script startrd executing at : $(date)" | tee -a $LOG_FILE
 
-# | tee -a $LOG_FILE this command using for output will store in log file and also show output in screen while run the script like (sudo sh-22.logs.sh)
-# &>>$LOG_FILE this command using for if the output fail or success it will store in log file
+# | tee -a $LOG_FILE this command using for output will store in log file and also show output in screen while run the script like (sudo sh 22-logs.sh)
+# &>>$LOG_FILE this command using for if the output fail or success it will store in log file, after run the script if you want to see the output stored in log file give (cat /var/log/shellscript-logs/2-logs.log)
 # 1 means success, 2 means failure &(append) means both fail and success 
 if [ $USERID -ne 0 ]
 then 
@@ -84,3 +84,4 @@ else
   echo -e "Nothing to do nginx ... $Y already installed $N" | tee -a $LOG_FILE
 fi
 
+#sudo sh 22-logs.sh
