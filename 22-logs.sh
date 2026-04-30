@@ -20,7 +20,7 @@ Y="\e[33m"
 N="\e[0m"
 LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1) # $0 represent script name
-LOG_FILE="$LOGS_FOLDER/$SCRIPT NAME.log"
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOGS_FOLDER
 echo "script startrd executing at : $(date)" &>>$LOG_FILE
 
