@@ -29,38 +29,38 @@ else
 fi
 }
 
-dnf list installed MYSQL  
+dnf list installed mysql  
 
 if [ $? -ne 0 ] 
 then
-  echo "Mysql is not installed...going to install it"  # then do install 
+  echo "mysql is not installed...going to install it"  # then do install 
   dnf install mysql -y  # run this script with root access using sudo command like sudo su 19-functions.sh
-VALIDATE $? "MYSQL"   # VALIDATE is a function, function name should give with capital letters.
+VALIDATE $? "mysql"   # VALIDATE is a function, function name should give with capital letters.
 else
-  echo "Mysql is already installed...Nothing to do"  # else nothing to install
+  echo "mysql is already installed...Nothing to do"  # else nothing to install
 fi
 
 
-dnf list installed PYTHON3  
+dnf list installed python3  
 
 if [ $? -ne 0 ]  
 then
-  echo "PYTHON3 is not installed...going to install it"  # then do install 
-  dnf install PYTHON3 -y  # run this script with root access using sudo command like sudo su 19-functions.sh
-VALIDATE $? "PYTHON3"
+  echo "python3 is not installed...going to install it"  # then do install 
+  dnf install python3 -y  # run this script with root access using sudo command like sudo su 19-functions.sh
+VALIDATE $? "python3"
 else
-  echo "PYTHON3 is already installed...Nothing to do"  
+  echo "python3 is already installed...Nothing to do"  
 fi
 
 
-dnf list installed NGINX  
+dnf list installed nginx  
 
 if [ $? -ne 0 ] 
 then
-  echo "NGINX is not installed...going to install it"  # then do install 
-  dnf install NGINX -y  # run this script with root access using sudo command like sudo su 19-functions.sh
-VALIDATE $? "NGINX"
+  echo "nginx is not installed...going to install it"  # then do install 
+  dnf install nginx -y  # run this script with root access using sudo command like sudo su 19-functions.sh
+VALIDATE $? "nginx"
 else
-  echo "NGINX is already installed...Nothing to do"  
+  echo "nginx is already installed...Nothing to do"  
 fi
 
