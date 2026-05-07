@@ -54,7 +54,7 @@ fi
 # using for loop, this script has only taking these lines and these lines are enough if you want any number of packages.
 # using for loop to reduce the lines and repeated code , making the script simple.
 
-for package in $(PACKAGES[@])    
+for package in ${PACKAGES[@]}   
   do 
    dnf list installed $packages &>>$LOG_FILE  # checking if the package is already installed or not
 if [ $? -ne 0 ] 
