@@ -22,6 +22,8 @@ LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1) # $0 represent script name
 
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
+PACKAGES=("mysql" "python3" "nginx" "httpd")   # i give list of packages what ever packages i need in array formate using variable of PACKAGES.
+
 mkdir -p $LOGS_FOLDER
 echo "script startrd executing at : $(date)" | tee -a $LOG_FILE
 
@@ -49,37 +51,21 @@ else
 fi
 }
 
-dnf list installed mysql  &>>$LOG_FILE
+# using for loop, this script has only taking these lines and these lines are enough if you want any number of packages.
+# using for loop to reduce the lines and repeated code , making the script simple.
 
+# if i don't want to change the code in the script,i can send the packages as arguments.
+# while run the script at that i can give packages whatever package i need with space difference like sudo sh 25-loop1.sh nginx mysql 
+
+for package in $@    
+  do 
+   dnf list installed $packages &>>$LOG_FILE  # checking if the package is already installed or not
 if [ $? -ne 0 ] 
 then
-  echo "mysql is not installed...going to install it"  | tee -a $LOG_FILE # then do install 
-  dnf install mysql -y &>>$LOG_FILE  # run this script with root access using sudo command like sudo su 19-functions.sh
-VALIDATE $? "mysql"   # VALIDATE is a function, function name should give with capital letters.
+   echo "$package is not installed...going to install it"  | tee -a $LOG_FILE #if package not installed already its going to install it.
+  dnf install $package -y &>>$LOG_FILE  
+VALIDATE $? "$package"   
 else
-  echo -e "Nothing to do mysql ... $Y already installed $N" | tee -a $LOG_FILE # else nothing to install
+  echo -e "Nothing to do $package ... $Y already installed $N" | tee -a $LOG_FILE  # if installed package already nothing to do
 fi
-
-
-dnf list installed python3  &>>$LOG_FILE
-
-if [ $? -ne 0 ]  
-then
-  echo "python3 is not installed...going to install it" | tee -a $LOG_FILE # then do install 
-  dnf install python3 -y &>>$LOG_FILE # run this script with root access using sudo command like sudo su 19-functions.sh
-VALIDATE $? "python3"
-else
-  echo -e "Nothing to do python3 ... $Y already installed $N"  | tee -a $LOG_FILE
-fi
-
-
-dnf list installed nginx  &>>$LOG_FILE
-
-if [ $? -ne 0 ] 
-then
-  echo "nginx is not installed...going to install it" | tee -a $LOG_FILE  # then do install 
-  dnf install nginx -y &>>$LOG_FILE # run this script with root access using sudo command like sudo su 19-functions.sh
-VALIDATE $? "nginx"
-else
-  echo -e "Nothing to do nginx ... $Y already installed $N" | tee -a $LOG_FILE
-fi
+  done
